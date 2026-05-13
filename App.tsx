@@ -16,6 +16,7 @@ import { Audio } from 'expo-av';
 
 import { AudioService } from './src/AudioService';
 import { segmentSounds, computeSimilarity } from './src/SoundAnalyzer';
+import { pickStrategy, playStrategy } from './src/NoiseCancel';
 import { AppState, CapturedSound, MeteringPoint } from './src/types';
 
 const { width } = Dimensions.get('window');
@@ -28,6 +29,13 @@ export default function App() {
   const [sounds, setSounds] = useState<CapturedSound[]>([]);
   const [selected, setSelected] = useState<CapturedSound | null>(null);
   const [similarity, setSimilarity] = useState(0);
+
+  const [cancelState, setCancelState] = useState<'off' | 'listening' | 'cancelling'>('off');
+  const [cancelLabel, setCancelLabel] = useState('');
+  const [cancelDesc, setCancelDesc] = useState('');
+  const cancelSoundRef = useRef<import('expo-av').Audio.Sound | null>(null);
+  const cancelMeteringRef = useRef<MeteringPoint[]>([]);
+  const cancelTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const meteringHistory = useRef<MeteringPoint[]>([]);
   const smoothedSim = useRef(0);
@@ -171,6 +179,43 @@ export default function App() {
   };
 
   // ── NEW CAPTURE ──────────────────────────────────────────────────────
+  const handleCancelStart = async () => {
+    if (appState !== 'idle' || cancelState !== 'off') return;
+    const granted = await audioSvc.requestPermissions();
+    if (!granted) {
+      Alert.alert('Permission required', 'Microphone access is needed to analyse the sound.');
+      return;
+    }
+    cancelMeteringRef.current = [];
+    setCancelState('listening');
+    await audioSvc.startCapture(point => { cancelMeteringRef.current.push(point); });
+    cancelTimerRef.current = setTimeout(async () => {
+      await audioSvc.stopCapture();
+      const history = cancelMeteringRef.current;
+      if (history.length === 0) { setCancelState('off'); return; }
+      const { extractQuickFeatures } = require('./src/SoundAnalyzer');
+      const features = extractQuickFeatures(history);
+      const strategy = pickStrategy(features);
+      setCancelLabel(strategy.label);
+      setCancelDesc(strategy.description);
+      setCancelState('cancelling');
+      try {
+        cancelSoundRef.current = await playStrategy(strategy);
+      } catch (_e) { setCancelState('off'); }
+    }, 700);
+  };
+
+  const handleCancelStop = async () => {
+    if (cancelTimerRef.current) { clearTimeout(cancelTimerRef.current); cancelTimerRef.current = null; }
+    try { await audioSvc.stopCapture(); } catch (_e) {}
+    if (cancelSoundRef.current) {
+      try { await cancelSoundRef.current.stopAsync(); await cancelSoundRef.current.unloadAsync(); } catch (_e) {}
+      cancelSoundRef.current = null;
+    }
+    setCancelState('off');
+    setCancelLabel('');
+  };
+
   const handleNewCapture = async () => {
     await audioSvc.stopPlayback();
     setSounds([]);
@@ -196,6 +241,28 @@ export default function App() {
           <TouchableOpacity style={styles.captureBtn} onPress={handleCapture} activeOpacity={0.8}>
             <Text style={styles.captureBtnText}>CAPTURE</Text>
           </TouchableOpacity>
+
+          {/* Cancel Sound button */}
+          <TouchableOpacity
+            style={[
+              styles.cancelBtn,
+              cancelState === 'listening' && styles.cancelBtnListening,
+              cancelState === 'cancelling' && styles.cancelBtnActive,
+            ]}
+            onPressIn={handleCancelStart}
+            onPressOut={handleCancelStop}
+            activeOpacity={0.8}
+          >
+            {cancelState === 'off' && <Text style={styles.cancelBtnText}>CANCEL SOUND</Text>}
+            {cancelState === 'listening' && <Text style={styles.cancelBtnText}>Listening...</Text>}
+            {cancelState === 'cancelling' && (
+              <View style={styles.cancelActiveContent}>
+                <Text style={styles.cancelBtnText}>{cancelLabel}</Text>
+                <Text style={styles.cancelBtnDesc}>{cancelDesc}</Text>
+              </View>
+            )}
+          </TouchableOpacity>
+          <Text style={styles.cancelHint}>Hold to cancel surrounding sound</Text>
         </View>
       )}
 
@@ -504,4 +571,29 @@ const styles = StyleSheet.create({
     paddingHorizontal: 36,
   },
   stopTrackingText: { color: '#FFF', fontSize: 14, fontWeight: '600' },
+
+  // Cancel Sound button
+  cancelBtn: {
+    marginTop: 28,
+    paddingVertical: 12,
+    paddingHorizontal: 28,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    borderColor: '#546E7A',
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    minWidth: 160,
+  },
+  cancelBtnListening: {
+    borderColor: '#FF9800',
+    backgroundColor: 'rgba(255,152,0,0.08)',
+  },
+  cancelBtnActive: {
+    borderColor: '#4CAF50',
+    backgroundColor: 'rgba(76,175,80,0.1)',
+  },
+  cancelBtnText: { color: '#546E7A', fontSize: 13, fontWeight: '600', letterSpacing: 0.5 },
+  cancelBtnDesc: { color: '#78909C', fontSize: 10, marginTop: 2 },
+  cancelActiveContent: { alignItems: 'center' },
+  cancelHint: { marginTop: 8, fontSize: 11, color: '#BDBDBD' },
 });

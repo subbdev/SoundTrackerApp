@@ -106,6 +106,12 @@ function extractFeatures(profile: number[]): SoundFeatures {
   };
 }
 
+// Quick feature extraction directly from raw MeteringPoints (no pre-slicing needed)
+export function extractQuickFeatures(history: MeteringPoint[]): SoundFeatures {
+  const profile = history.map(p => normalize(p.db));
+  return extractFeatures(profile);
+}
+
 function classify(f: SoundFeatures): string {
   // Percussive: fast attack, high crest factor (impulsive), fast decay
   if (f.attackRate > 0.65 && f.crestFactor > 0.4 && f.decayRate > 0.45) return 'Percussive';
