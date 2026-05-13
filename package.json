@@ -1,0 +1,25 @@
+{
+  "name": "sound-tracker",
+  "version": "1.0.0",
+  "main": "expo/AppEntry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "build:apk": "eas build -p android --profile preview --non-interactive",
+    "ios": "expo run:ios"
+  },
+  "dependencies": {
+    "expo": "~52.0.46",
+    "expo-av": "~15.0.2",
+    "expo-sensors": "~14.0.2",
+    "expo-status-bar": "~2.0.1",
+    "react": "18.3.1",
+    "react-native": "0.76.9",
+    "react-native-reanimated": "~3.16.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~18.3.12",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Sound Tracker",
+    "slug": "sound-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2196F3"
+      },
+      "package": "com.hackathon.soundtracker",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow Sound Tracker to access your microphone to capture and identify sounds."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    }
+  }
+}

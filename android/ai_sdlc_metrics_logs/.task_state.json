@@ -1,0 +1,557 @@
+{
+  "tool_starts": {
+    "toolu_01HTtS5TwUBr1iLJUwkMLche": 1778645343.142133
+  },
+  "pe_tool_sequence": [
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_016G5N2MTb5k2rNJYXNCsZzW",
+      "success": true,
+      "duration_ms": 6980
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01CYWjs6vF1FxWg2ZXyqg8eJ",
+      "success": true,
+      "duration_ms": 4846
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01NuAX4RsDhzTyZVeHUMew2Q",
+      "success": true,
+      "duration_ms": 4621
+    },
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_01UVMBagX958JGdeXsovDgE3",
+      "success": true,
+      "duration_ms": 1109
+    },
+    {
+      "tool_name": "Edit",
+      "tool_use_id": "toolu_01NVUYmsu7AU1FzTEpsFtpFW",
+      "success": true,
+      "duration_ms": 882
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01SYgR6RQrX8uTWPAzMfK7KV",
+      "success": false
+    },
+    {
+      "tool_name": "Edit",
+      "tool_use_id": "toolu_01XH4prYPXS44Svo7yXHW5pa",
+      "success": true,
+      "duration_ms": 926
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_012uDML1JYixoRcWmvmSwvX5",
+      "success": false
+    },
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_01PdNLAxY7VvHDjFuMj2UW7M",
+      "success": true,
+      "duration_ms": 903
+    },
+    {
+      "tool_name": "Edit",
+      "tool_use_id": "toolu_0155J1gKUSbzecgH69LGQNyB",
+      "success": true,
+      "duration_ms": 1191
+    },
+    {
+      "tool_name": "Edit",
+      "tool_use_id": "toolu_012b1ypewyknr8kBu4jiw88i",
+      "success": true,
+      "duration_ms": 1286
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01HZ1aGxjXA4zqSwNw7Psg6C",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01Hq7pQ7VdU4x5aq8DAu2h5C",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01GETwB4dzwPESHHtYNdnCHE",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01Haoacn7HiHJKPwcDfSkAKC",
+      "success": true,
+      "duration_ms": 84638
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_0185iAnaYrY4wcmqVMpAQx6E",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01HTtS5TwUBr1iLJUwkMLche",
+      "start_time": 1778645343.1820967,
+      "success": null
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_015Lko42LMRfZkGoiBpmejXT",
+      "success": true,
+      "duration_ms": 20103
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01LfuNUo6mD4XHJuwLHdm2Cy",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01CQtFKm22nU6qxsGJaP2Mts",
+      "success": true,
+      "duration_ms": 18526
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01GHL22kQzTtr2k4NBbRRV3f",
+      "success": true,
+      "duration_ms": 8088
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_016jHpBoaU1JzA8xD3NN4dBJ",
+      "success": true,
+      "duration_ms": 18864
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_015X7o2eBAgNKshRcJQ5gBuY",
+      "success": true,
+      "duration_ms": 20079
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01CzfBLjofqEjFBCq8By22Vt",
+      "success": true,
+      "duration_ms": 55170
+    },
+    {
+      "tool_name": "Edit",
+      "tool_use_id": "toolu_018m3GWkC6W5hJdNJr9LMa2B",
+      "success": true,
+      "duration_ms": 1803
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01DMyxxvtTbKRgzEFx1Ee8tR",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01KjzC8yBqcexuJQVd7yzaVx",
+      "success": true,
+      "duration_ms": 12121
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01SV7axhGyuTmhK88GyPDbTJ",
+      "success": true,
+      "duration_ms": 17295
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01SCEPYJTsR98J75stwng2d2",
+      "success": true,
+      "duration_ms": 622515
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01HLXiRvjcEPAqw8fXGUDXSz",
+      "success": true,
+      "duration_ms": 36476
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_0118kWpdzaeEwNxz1NhvaKxf",
+      "success": true,
+      "duration_ms": 7576
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_011ygzE8krCmLQgXojUia1L6",
+      "success": true,
+      "duration_ms": 10671
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01W8dC7bivjaKfvLv4iWejpm",
+      "success": true,
+      "duration_ms": 9266
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_012hFzPbUraVAMxFitKpxABm",
+      "success": true,
+      "duration_ms": 2122
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01MAifgfZc99mKEg7BEXFR1m",
+      "success": true,
+      "duration_ms": 3218
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_015vrLT66JdczE8Si86xqbVQ",
+      "success": true,
+      "duration_ms": 2202
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01PUPobYxTNsMtrXH9fRgopg",
+      "success": true,
+      "duration_ms": 4540
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01Di7xVqC8ghNUgjYsPjfG7e",
+      "success": true,
+      "duration_ms": 4526
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01ViWkxE9yhDAVC344VSebh4",
+      "success": true,
+      "duration_ms": 3458
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01HHHgtZy6oS9hKDsZVbvrxX",
+      "success": true,
+      "duration_ms": 4105
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_013afdLMgVNfAX5G7T7G2bbw",
+      "success": true,
+      "duration_ms": 1531
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_0117jeR1X3aea57KYz92mi9q",
+      "success": true,
+      "duration_ms": 1762
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01Vrwfu7kaxjGkDXRas7GQ37",
+      "success": true,
+      "duration_ms": 41315
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01NJK765WK5DnRudMqs8nxzm",
+      "success": true,
+      "duration_ms": 21331
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01DwdwsTwZLZMn7SjyUWQs4Q",
+      "success": true,
+      "duration_ms": 5000
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_012v4A3c8q7fkwDahUQBDz2w",
+      "success": true,
+      "duration_ms": 12091
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01MGw7XAJPjD61wWyD8nb9jJ",
+      "success": true,
+      "duration_ms": 2211
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_019xoPiRJiGrHtxLeJwmH7LL",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01S4KPKij4i5qHf9ErsB87CK",
+      "success": true,
+      "duration_ms": 9256
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01PrWTnuJRPqgQF9hTVr551S",
+      "success": true,
+      "duration_ms": 177747
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01FxrC6C4gmDGCE6mQUsCdk6",
+      "success": true,
+      "duration_ms": 130135
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_014F1fJ6r3F57d6UmSuWvL88",
+      "success": true,
+      "duration_ms": 58526
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01A2eQgzLDV9SHeMBNjNAcak",
+      "success": true,
+      "duration_ms": 32114
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01KygLENXNzZjKVnUtgD57NZ",
+      "success": true,
+      "duration_ms": 25127
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01EdjDmsBuXMoVFwuEX9EJ2V",
+      "success": true,
+      "duration_ms": 19179
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_014s2bJaEk6AZPQ3ApnchNTJ",
+      "success": true,
+      "duration_ms": 13782
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01H4hbq3KGyn832hECyiA5Pg",
+      "success": true,
+      "duration_ms": 4760
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01UVdjSjLazAGHvqFYzbxuyv",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01AFqisRYuzhtN239ZhXv5G3",
+      "success": true,
+      "duration_ms": 7813
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_0133gukqsWYbkBUXmXqSHvyQ",
+      "success": true,
+      "duration_ms": 15639
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01BmToJmkAV2eEn5QMYvYw5s",
+      "success": true,
+      "duration_ms": 6740
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01ULksg15KEZCsmsnLhoaboS",
+      "success": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_012QGCTHG8mjgyfNQ2JFMd5H",
+      "success": false
+    },
+    {
+      "tool_name": "Edit",
+      "tool_use_id": "toolu_01WWkCrThY3qCz894sZLd4MK",
+      "success": true,
+      "duration_ms": 2361
+    }
+  ],
+  "pe_errors": [
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01589BJNqPDnjwfDfyWopjYR",
+      "error_message": "Exit code 1\nJAVA_HOME: C:\\Users\\subrahmanyam.yepuri\\AppData\\Local\\jdk11\r\n_JAVA_OPTIONS: -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.WindowsSelectorProvider\u001b[0m\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01SYgR6RQrX8uTWPAzMfK7KV",
+      "error_message": "Exit code 1\nJAVA_HOME: C:\\Users\\subrahmanyam.yepuri\\AppData\\Local\\jdk17\r\nJava version:\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\n\u001b[31;1mopenjdk version \"17.0.15\" 2025-04-15\u001b[0m\r\n\u001b[31;1mOpenJDK Runtime Environment Temurin-17.0.15+6 (build 17.0.15+6)\u001b[0m\r\n\u001b[31;1mOpenJDK 64-Bit Server VM Temurin-17.0.15+6 (build 17.0.15+6, mixed mode, sharing)\u001b[0m\r\n\nStarting build...\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\nTo honour the",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_012uDML1JYixoRcWmvmSwvX5",
+      "error_message": "Exit code 1\nStarting build (no daemon fork expected)...\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1mFAILURE: Build failed with an exception.\u001b[0m\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1m* What went wrong:\u001b[0m\r\n\u001b[31;1mjava.io.IOE",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01HZ1aGxjXA4zqSwNw7Psg6C",
+      "error_message": "Exit code 1\nStarting build - JVM args aligned to prevent fork...\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1mFAILURE: Build failed with an exception.\u001b[0m\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1m* What went wrong:\u001b[0m\r\n\u001b[31;1mja",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01Hq7pQ7VdU4x5aq8DAu2h5C",
+      "error_message": "Exit code 1\nReceived JVM installation metadata from 'C:\\Users\\subrahmanyam.yepuri\\AppData\\Local\\jdk17': {JAVA_HOME=C:\\Users\\subrahmanyam.yepuri\\AppData\\Local\\jdk17, JAVA_VERSION=17.0.15, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.15+6, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.15+6, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please ref",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01GETwB4dzwPESHHtYNdnCHE",
+      "error_message": "Exit code 1\n\u001b[31;1munrecognized option : --dir=C:\\Users\\SUBRAH~1.YEP\\AppData\\Local\\Temp\\jdk17_patch\u001b[0m\r\n\u001b[31;1mTry `jar --help' for more information.\u001b[0m\r\njar extract failed: 1\r\nCopied jmod as zip, try 7z or Expand-Archive...",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_0185iAnaYrY4wcmqVMpAQx6E",
+      "error_message": "Exit code 2\nUsage: javap <options> <classes>\r\nuse --help for a list of possible options\r\n\u001b[31;1mError: unknown option: -source\u001b[0m",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01JfU3FmVPCMVZzyPDByT8Y3",
+      "error_message": "Exit code 1\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1mFAILURE: Build failed with an exception.\u001b[0m\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1m* What went wrong:\u001b[0m\r\n\u001b[31;1mjava.io.IOException: Unable to establish loopback connec",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01LfuNUo6mD4XHJuwLHdm2Cy",
+      "error_message": "Exit code 1\njava.home=D:\\Software\\jdk-17.0.12\r\nTesting Pipe.open()...\r\nException in thread \"main\" java.io.IOException: Unable to establish loopback connection\r\n\tat java.base/sun.nio.ch.PipeImpl$Initializer.run(PipeImpl.java:101)\r\n\tat java.base/sun.nio.ch.PipeImpl$Initializer.run(PipeImpl.java:67)\r\n\tat java.base/java.security.AccessController.doPrivileged(AccessController.java:569)\r\n\tat java.base/sun.nio.ch.PipeImpl.<init>(PipeImpl.java:195)\r\n\tat java.base/sun.nio.ch.PipeImpl.<init>(PipeImpl.java",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01DMyxxvtTbKRgzEFx1Ee8tR",
+      "error_message": "Exit code 1\nStarting Gradle build with AF_UNIX patch...\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1mFAILURE: Build failed with an exception.\u001b[0m\r\n\u001b[31;1m\u001b[0m\r\n\u001b[31;1m* What went wrong:\u001b[0m\r\n\u001b[31;1mjava.io.IOE",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_019xoPiRJiGrHtxLeJwmH7LL",
+      "error_message": "Exit code 1\n\u001b[31;1mThe system cannot find the path specified.\u001b[0m\r\nExit: 1",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01UVdjSjLazAGHvqFYzbxuyv",
+      "error_message": "Exit code 1\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: \u001b[0m\r\nTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.10.2/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.\r\nDaemon will be stopped at the end of the build \r\n> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors\r\n> Task :gradle-plugin:shared:checkKotlinGr",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01ULksg15KEZCsmsnLhoaboS",
+      "error_message": "Exit code 1\nGRADLE_OPTS=--patch-module java.base=D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/android/unix-domain-patch.jar\r\n_JAVA_OPTIONS=--patch-module java.base=D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/android/unix-domain-patch.jar\r\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: --patch-module java.base=D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/android/unix-domain-patch.jar\u001b[0m\r\n\u001b[31;1mUnrecognized option: --patch-module\u001b[0",
+      "is_interrupt": false
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_012QGCTHG8mjgyfNQ2JFMd5H",
+      "error_message": "Exit code 1\nStarting build...\r\nError occurred during initialization of VM\nCannot specify java.base more than once to --patch-module\n\u001b[31;1mPicked up JAVA_TOOL_OPTIONS: \u001b[0m\r\n\u001b[31;1mPicked up _JAVA_OPTIONS: --patch-module=java.base=D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/android/unix-domain-patch.jar\u001b[0m",
+      "is_interrupt": false
+    }
+  ],
+  "pe_files_read": [
+    "D:\\Docs\\Innova\\Hackthon\\Hack-Fin-Analyst\\SoundTrackerApp\\android\\gradle.properties",
+    "D:\\Docs\\Innova\\Hackthon\\Hack-Fin-Analyst\\SoundTrackerApp\\android\\gradlew.bat"
+  ],
+  "pe_files_modified": [
+    {
+      "file_path": "D:\\Docs\\Innova\\Hackthon\\Hack-Fin-Analyst\\SoundTrackerApp\\android\\gradle.properties",
+      "language": "properties",
+      "edit_count": 5
+    },
+    {
+      "file_path": "D:\\Docs\\Innova\\Hackthon\\Hack-Fin-Analyst\\SoundTrackerApp\\android\\gradlew.bat",
+      "language": "bat"
+    }
+  ],
+  "pe_commands_executed": [
+    {
+      "command": "export JAVA_HOME=\"D:/Software/jdk-17.0.12\"\nexport PATH=\"$JAVA_HOME/bin:$PATH\"\nexport _JAVA_OPTIONS=\"\"\nexport JAVA_TOOL_OPTIONS=\"\"\ncd \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/android\"\n",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "find \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/node_modules/expo-av/android/build\" -name \"*.log\" -o -name \"*.json\" 2>/dev/null | head -30",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "cat \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/node_modules/expo-av/android/build/intermediates/cxx/Debug/2z6d5vl4/logs/arm64-v8a/build_model.json\"",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "find \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/node_modules/expo-av/android/.cxx\" -type f 2>/dev/null | head -40",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "cat \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/node_modules/expo-av/android/.cxx/Debug/2z6d5vl4/arm64-v8a/prefab_config.json\"",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "ls \"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/37511f32bfd4e03d203e05d2f6a21d71/transformed/react-android-0.76.9-debug/prefab/\" 2>/dev/null\necho \"---fbjni---\"\nls \"C:/Users/subrahman",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "find \"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/37511f32bfd4e03d203e05d2f6a21d71/transformed/react-android-0.76.9-debug/prefab/modules\" -type f | head -20\necho \"---\"\nfind \"C:/Users",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "# Check what ReactAndroid modules are available\nls \"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/37511f32bfd4e03d203e05d2f6a21d71/transformed/react-android-0.76.9-debug/prefab/modules",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "cat \"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/660454f076fc11b7e7bc55fc041c0580/transformed/fbjni-0.6.0/prefab/modules/fbjni/libs/android.arm64-v8a/abi.json\"\necho \"---reactnative a",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "find \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/node_modules/expo-av/android/.cxx/Debug/2z6d5vl4/prefab\" -type f 2>/dev/null\necho \"---\"\n# Also check the metadata generation command to s",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "cat \"D:/Docs/Innova/Hackthon/Hack-Fin-Analyst/SoundTrackerApp/node_modules/expo-av/android/build/intermediates/cxx/Debug/2z6d5vl4/logs/arm64-v8a/prefab_command.bat\" 2>/dev/null",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "cat \"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/37511f32bfd4e03d203e05d2f6a21d71/transformed/react-android-0.76.9-debug/prefab/modules/jsi/module.json\"\necho \"---\"\ncat \"C:/Users/subr",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "cat \"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/37511f32bfd4e03d203e05d2f6a21d71/transformed/react-android-0.76.9-debug/prefab/modules/reactnative/module.json\"\necho \"---\"\nls \"C:/Use",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "REACT_PREFAB=\"C:/Users/subrahmanyam.yepuri/.gradle/caches/8.10.2/transforms/37511f32bfd4e03d203e05d2f6a21d71/transformed/react-android-0.76.9-debug/prefab\"\nFBJNI_PREFAB=\"C:/Users/subrahmanyam.yepuri/.",
+      "exit_code": null,
+      "is_test_run": false
+    },
+    {
+      "command": "find \"$TEMP/prefab-diag\" -type f 2>/dev/null\necho \"---\"\nls \"$TEMP/prefab-diag/\" 2>/dev/null",
+      "exit_code": null,
+      "is_test_run": false
+    }
+  ]
+}
