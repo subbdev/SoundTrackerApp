@@ -1,8 +1,8 @@
 import { CapturedSound, MeteringPoint } from './types';
 
-const SILENCE_DB = -55;
-const MIN_SILENCE_MS = 350;
-const MIN_SEGMENT_MS = 250;
+const SILENCE_DB = -70;
+const MIN_SILENCE_MS = 150;
+const MIN_SEGMENT_MS = 80;
 const MAX_SEGMENT_MS = 15000;
 
 const TYPE_COLORS: Record<string, string> = {
@@ -133,12 +133,12 @@ export function computeSimilarity(
   const liveNorm = normalize(liveDb);
   const targetNorm = normalize(targetSound.avgDb);
 
-  // Distance in normalized space, max meaningful diff = 0.5
+  // Distance in normalized space, max meaningful diff = 0.3 (tighter = more sensitive)
   const dist = Math.abs(liveNorm - targetNorm);
-  const sim = Math.max(0, 1 - dist / 0.5);
+  const sim = Math.max(0, 1 - dist / 0.3);
 
   // Boost: if live is *above* target average (moving toward source), increase score
-  const boost = liveNorm > targetNorm ? (liveNorm - targetNorm) * 0.6 : 0;
+  const boost = liveNorm > targetNorm ? (liveNorm - targetNorm) * 1.0 : 0;
 
   return Math.min(1, sim + boost);
 }
