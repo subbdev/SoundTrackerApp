@@ -41,7 +41,7 @@ export class AudioService {
       const uri = this.recording.getURI();
       this.recording = null;
       return uri ?? null;
-    } catch {
+    } catch (_e) {
       this.recording = null;
       return null;
     }
@@ -73,7 +73,7 @@ export class AudioService {
         if (status.positionMillis >= endMs || !status.isPlaying) {
           this.stopPlayback().then(onFinish);
         }
-      } catch {
+      } catch (_e) {
         this.stopPlayback().then(onFinish);
       }
     }, 150);
@@ -88,7 +88,7 @@ export class AudioService {
       try {
         await this.playbackSound.stopAsync();
         await this.playbackSound.unloadAsync();
-      } catch { /* already unloaded */ }
+      } catch (_e) { /* already unloaded */ }
       this.playbackSound = null;
     }
   }
@@ -121,7 +121,7 @@ export class AudioService {
     if (!this.trackingRecording) return;
     try {
       await this.trackingRecording.stopAndUnloadAsync();
-    } catch { /* ignore */ }
+    } catch (_e) { /* ignore */ }
     this.trackingRecording = null;
   }
 }
