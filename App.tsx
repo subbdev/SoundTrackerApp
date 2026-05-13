@@ -16,7 +16,7 @@ import { Audio } from 'expo-av';
 
 import { AudioService } from './src/AudioService';
 import { segmentSounds, computeSimilarity } from './src/SoundAnalyzer';
-import { pickStrategy, playStrategy } from './src/NoiseCancel';
+import { recordAndAnalyse, buildAndPlay, CancelSession } from './src/NoiseCancel';
 import { AppState, CapturedSound, MeteringPoint } from './src/types';
 
 const { width } = Dimensions.get('window');
@@ -30,12 +30,12 @@ export default function App() {
   const [selected, setSelected] = useState<CapturedSound | null>(null);
   const [similarity, setSimilarity] = useState(0);
 
-  const [cancelState, setCancelState] = useState<'off' | 'listening' | 'cancelling'>('off');
+  const [cancelState, setCancelState] = useState<'off' | 'recording' | 'analysing' | 'cancelling'>('off');
+  const [cancelSecondsLeft, setCancelSecondsLeft] = useState(3);
   const [cancelLabel, setCancelLabel] = useState('');
   const [cancelDesc, setCancelDesc] = useState('');
-  const cancelSoundRef = useRef<import('expo-av').Audio.Sound | null>(null);
-  const cancelMeteringRef = useRef<MeteringPoint[]>([]);
-  const cancelTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cancelSessionRef = useRef<CancelSession | null>(null);
+  const cancelActiveRef = useRef(false);
 
   const meteringHistory = useRef<MeteringPoint[]>([]);
   const smoothedSim = useRef(0);
@@ -179,41 +179,56 @@ export default function App() {
   };
 
   // ── NEW CAPTURE ──────────────────────────────────────────────────────
-  const handleCancelStart = async () => {
+  const handleCancelPress = async () => {
     if (appState !== 'idle' || cancelState !== 'off') return;
     const granted = await audioSvc.requestPermissions();
     if (!granted) {
-      Alert.alert('Permission required', 'Microphone access is needed to analyse the sound.');
+      Alert.alert('Permission required', 'Microphone access is needed to record the sound.');
       return;
     }
-    cancelMeteringRef.current = [];
-    setCancelState('listening');
-    await audioSvc.startCapture(point => { cancelMeteringRef.current.push(point); });
-    cancelTimerRef.current = setTimeout(async () => {
-      await audioSvc.stopCapture();
-      const history = cancelMeteringRef.current;
-      if (history.length === 0) { setCancelState('off'); return; }
-      const { extractQuickFeatures } = require('./src/SoundAnalyzer');
-      const features = extractQuickFeatures(history);
-      const strategy = pickStrategy(features);
-      setCancelLabel(strategy.label);
-      setCancelDesc(strategy.description);
+
+    cancelActiveRef.current = true;
+    setCancelState('recording');
+    setCancelSecondsLeft(3);
+
+    try {
+      const analysis = await recordAndAnalyse(secondsLeft => {
+        setCancelSecondsLeft(Math.ceil(secondsLeft));
+      });
+
+      if (!cancelActiveRef.current) return; // user cancelled during recording
+
+      setCancelState('analysing');
+      const session = await buildAndPlay(analysis);
+
+      if (!cancelActiveRef.current) {
+        // user tapped stop while we were building — clean up immediately
+        try { await session.sound.stopAsync(); await session.sound.unloadAsync(); } catch (_e) {}
+        setCancelState('off');
+        return;
+      }
+
+      cancelSessionRef.current = session;
+      setCancelLabel(session.label);
+      setCancelDesc(session.description);
       setCancelState('cancelling');
-      try {
-        cancelSoundRef.current = await playStrategy(strategy);
-      } catch (_e) { setCancelState('off'); }
-    }, 700);
+    } catch (_e) {
+      setCancelState('off');
+    }
   };
 
   const handleCancelStop = async () => {
-    if (cancelTimerRef.current) { clearTimeout(cancelTimerRef.current); cancelTimerRef.current = null; }
-    try { await audioSvc.stopCapture(); } catch (_e) {}
-    if (cancelSoundRef.current) {
-      try { await cancelSoundRef.current.stopAsync(); await cancelSoundRef.current.unloadAsync(); } catch (_e) {}
-      cancelSoundRef.current = null;
+    cancelActiveRef.current = false;
+    if (cancelSessionRef.current) {
+      try {
+        await cancelSessionRef.current.sound.stopAsync();
+        await cancelSessionRef.current.sound.unloadAsync();
+      } catch (_e) {}
+      cancelSessionRef.current = null;
     }
     setCancelState('off');
     setCancelLabel('');
+    setCancelDesc('');
   };
 
   const handleNewCapture = async () => {
@@ -243,26 +258,57 @@ export default function App() {
           </TouchableOpacity>
 
           {/* Cancel Sound button */}
-          <TouchableOpacity
-            style={[
-              styles.cancelBtn,
-              cancelState === 'listening' && styles.cancelBtnListening,
-              cancelState === 'cancelling' && styles.cancelBtnActive,
-            ]}
-            onPressIn={handleCancelStart}
-            onPressOut={handleCancelStop}
-            activeOpacity={0.8}
-          >
-            {cancelState === 'off' && <Text style={styles.cancelBtnText}>CANCEL SOUND</Text>}
-            {cancelState === 'listening' && <Text style={styles.cancelBtnText}>Listening...</Text>}
-            {cancelState === 'cancelling' && (
+          {cancelState === 'off' && (
+            <TouchableOpacity style={styles.cancelBtn} onPress={handleCancelPress} activeOpacity={0.8}>
+              <Text style={styles.cancelBtnText}>CANCEL SOUND</Text>
+            </TouchableOpacity>
+          )}
+
+          {cancelState === 'recording' && (
+            <View style={[styles.cancelBtn, styles.cancelBtnRecording]}>
+              <Text style={[styles.cancelBtnText, { color: '#E53935' }]}>
+                Recording... {cancelSecondsLeft}s
+              </Text>
+              <View style={styles.cancelProgressBar}>
+                <Animated.View
+                  style={[
+                    styles.cancelProgressFill,
+                    { width: `${((3 - cancelSecondsLeft) / 3) * 100}%` },
+                  ]}
+                />
+              </View>
+            </View>
+          )}
+
+          {cancelState === 'analysing' && (
+            <View style={[styles.cancelBtn, styles.cancelBtnAnalysing]}>
+              <ActivityIndicator size="small" color="#FF9800" style={{ marginBottom: 4 }} />
+              <Text style={[styles.cancelBtnText, { color: '#FF9800' }]}>Analysing sound...</Text>
+            </View>
+          )}
+
+          {cancelState === 'cancelling' && (
+            <TouchableOpacity
+              style={[styles.cancelBtn, styles.cancelBtnActive]}
+              onPress={handleCancelStop}
+              activeOpacity={0.8}
+            >
               <View style={styles.cancelActiveContent}>
-                <Text style={styles.cancelBtnText}>{cancelLabel}</Text>
+                <Text style={[styles.cancelBtnText, { color: '#4CAF50' }]}>
+                  CANCELLING  ■ STOP
+                </Text>
                 <Text style={styles.cancelBtnDesc}>{cancelDesc}</Text>
               </View>
-            )}
-          </TouchableOpacity>
-          <Text style={styles.cancelHint}>Hold to cancel surrounding sound</Text>
+            </TouchableOpacity>
+          )}
+
+          <Text style={styles.cancelHint}>
+            {cancelState === 'off'
+              ? 'Tap to record & cancel surrounding sound'
+              : cancelState === 'cancelling'
+              ? 'Tap again to stop'
+              : ''}
+          </Text>
         </View>
       )}
 
@@ -582,18 +628,35 @@ const styles = StyleSheet.create({
     borderColor: '#546E7A',
     backgroundColor: 'transparent',
     alignItems: 'center',
-    minWidth: 160,
+    minWidth: 180,
   },
-  cancelBtnListening: {
+  cancelBtnRecording: {
+    borderColor: '#E53935',
+    backgroundColor: 'rgba(229,57,53,0.06)',
+  },
+  cancelBtnAnalysing: {
     borderColor: '#FF9800',
-    backgroundColor: 'rgba(255,152,0,0.08)',
+    backgroundColor: 'rgba(255,152,0,0.06)',
   },
   cancelBtnActive: {
     borderColor: '#4CAF50',
     backgroundColor: 'rgba(76,175,80,0.1)',
   },
   cancelBtnText: { color: '#546E7A', fontSize: 13, fontWeight: '600', letterSpacing: 0.5 },
-  cancelBtnDesc: { color: '#78909C', fontSize: 10, marginTop: 2 },
+  cancelBtnDesc: { color: '#78909C', fontSize: 10, marginTop: 3 },
   cancelActiveContent: { alignItems: 'center' },
+  cancelProgressBar: {
+    marginTop: 6,
+    height: 3,
+    width: 140,
+    backgroundColor: '#FFCDD2',
+    borderRadius: 2,
+    overflow: 'hidden',
+  },
+  cancelProgressFill: {
+    height: 3,
+    backgroundColor: '#E53935',
+    borderRadius: 2,
+  },
   cancelHint: { marginTop: 8, fontSize: 11, color: '#BDBDBD' },
 });
